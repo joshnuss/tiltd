@@ -18,7 +18,7 @@ For demos, check out the `examples` folder
 
     $ cd some-dir
     $ echo '%h1 hello world' > index.haml
-    $ echo 'body\n\tcolor: blue' > style.css.sass
+    $ echo -e 'body\n\tcolor: blue' > style.css.sass
     $ tiltd
 
     index.haml can be found at http://localhost:8080/
