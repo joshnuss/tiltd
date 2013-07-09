@@ -1,13 +1,14 @@
 module Tiltd
   class Content
-    def self.find(path)
-      Dir.glob(path + '.*').first
+    def self.find(relative)
+      relative = relative.gsub(%r{^/}, '')
+      path = Dir.glob(relative + '.*').first
+      path if path && File.file?(path)
     end
 
     def self.locate(path)
-      relative = path.gsub(%r{^/}, '')
-      actual   = find(relative)
-      actual   = find(relative + "/index") unless actual
+      actual   = find(path)
+      actual   = find(File.join(path, "index")) unless actual
 
       new(actual) if actual
     end

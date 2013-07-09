@@ -7,6 +7,7 @@ describe Tiltd::Content do
     context "found" do
       before do
         Dir.should_receive(:glob).with('foo/other.*').and_return(['foo/other.haml'])
+        File.should_receive(:file?).with('foo/other.haml').and_return(true)
         Tiltd::Content.should_receive(:new).with('foo/other.haml').and_return(:content)
       end
 
@@ -21,6 +22,7 @@ describe Tiltd::Content do
       context "index exists" do
         before do
           Dir.should_receive(:glob).with('foo/other/index.*').and_return(['foo/other/index.haml'])
+          File.should_receive(:file?).with('foo/other/index.haml').and_return(true)
           Tiltd::Content.should_receive(:new).with('foo/other/index.haml').and_return(:content)
         end
         specify { should == :content}
