@@ -8,7 +8,7 @@ module Tiltd
         headers['Content-Type'] = content.mime_type
         code = 200
         body = content.body
-      el
+      else
         code = 404
         body = ''
       end
