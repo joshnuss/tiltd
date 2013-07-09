@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Tiltd::VERSION
   spec.authors       = ["Josh Nussbaum"]
   spec.email         = ["joshnuss@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = "Serve static files with rack and tilt"
+  spec.summary       = "A simple rack server for serving common template extensions"
+  spec.homepage      = "http://github.com/joshnuss/tiltd"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
@@ -20,6 +20,8 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'rack'
   spec.add_dependency 'tilt'
+  spec.add_dependency 'sass'
+  spec.add_dependency 'coffee-script'
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
