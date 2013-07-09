@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
 require 'tiltd'
+
+Rack::Server.start(app: Tiltd::Application.new)
