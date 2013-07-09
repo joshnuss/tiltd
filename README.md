@@ -8,6 +8,8 @@ This gem makes it easy to use these template languages without a lot of setup.
 
 For example if you want to test haml, just create a `index.haml` and run `tiltd` in the same directory.
 
+For demos, check out the `examples` folder
+
 ## Installation
 
     $ gem install tiltd
