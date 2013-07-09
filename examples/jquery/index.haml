@@ -3,12 +3,13 @@
   %head
     %title jQuery Example
     %script{src: '//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js'}
+    %script{src: '/app.js'}
     :sass
       h1
         color: purple
     :coffeescript
       jQuery ->
-        $('body').append('Hello from jquery')
+        $('body').append('<div>Hello from JS in page<div>')
   %body
     %h1 jQuery Example
     %p
