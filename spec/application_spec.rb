@@ -12,7 +12,7 @@ describe Tiltd::Application do
 
     context "content found" do
       let(:content) { stub(body: 'content', content_type: 'text/css') }
-      before { Tiltd::Content.should_receive(:locate).with('foo/other').and_return(content)}
+      before { Tiltd::Content.should_receive(:locate).with('/foo/other').and_return(content)}
 
       specify { response[0].should == 200 }
       specify { response[1]['Content-Type'].should == 'text/css' }
@@ -21,12 +21,11 @@ describe Tiltd::Application do
     end
 
     context "content not found" do
-      before { Tiltd::Content.should_receive(:locate).with('foo/other').and_return(nil) }
+      before { Tiltd::Content.should_receive(:locate).with('/foo/other').and_return(nil) }
 
       specify { response[0].should == 404 }
       specify { response[1].should == {} }
       specify { response[2].should == ['']}
     end
-
   end
 end
