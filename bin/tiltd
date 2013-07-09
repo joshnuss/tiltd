@@ -2,4 +2,7 @@
 
 require 'tiltd'
 
-Rack::Server.start(app: Tiltd::Application.new)
+ARGV << '--builder'
+ARGV << 'run Tiltd::Application.new'
+
+Rack::Server.start
