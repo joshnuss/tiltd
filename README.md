@@ -19,10 +19,10 @@ For demos, check out the `examples` folder
     $ cd some-dir
     $ echo '%h1 hello world' > index.haml
     $ echo -e 'body\n\tcolor: blue' > style.css.sass
-    $ tiltd
+    $ tiltd -p 9000
 
-    index.haml can be found at http://localhost:8080/
-    style.css.sass is at http://localhost:8080/style.css
+    index.haml can be found at http://localhost:9000/
+    style.css.sass is at http://localhost:9000/style.css
 
 ## Contributing
 
