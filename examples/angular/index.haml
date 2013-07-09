@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %title Angular Scratchpad
+    %script{src: "//ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular.min.js"}
+
+    :sass
+      body
+        background: #f1f1f1
+
+    :coffeescript
+      app = angular.module('app', [])
+
+      app.controller 'SampleController', ($scope) ->
+        $scope.name = 'World'
+
+  %body{ng: {app: 'app'}}
+    #example{ng: {controller: 'SampleController'}}
+      %p
+        %label Name:
+        %input{ng: {model: 'name'}}
+
+      %p Hello {{name}}!
