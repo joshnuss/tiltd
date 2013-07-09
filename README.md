@@ -1,24 +1,26 @@
 # Tiltd
 
-TODO: Write a gem description
+A daemon for [Tilt](http://github.com/rtomayko/tilt)
+
+Tilt supports many common template languages such as haml, coffee script and sass.
+
+This gem makes it easy to use these template languages without a lot of setup.
+
+For example if you want to test haml, just create a `index.haml` and run `tiltd` in the same directory.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'tiltd'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
     $ gem install tiltd
 
-## Usage
+## Example Usage
 
-TODO: Write usage instructions here
+    $ cd some-dir
+    $ echo '%h1 hello world' > index.haml
+    $ echo 'body\n\tcolor: blue' > style.css.sass
+    $ tiltd
+
+    index.haml can be found at http://localhost:8080/
+    style.css.sass is at http://localhost:8080/style.css
 
 ## Contributing
 
