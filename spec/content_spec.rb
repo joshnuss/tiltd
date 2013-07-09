@@ -36,7 +36,18 @@ describe Tiltd::Content do
     end
   end
 
+  context "located" do
+    let(:template) { stub(:template_class, render: 'example content')}
+    let(:template_class) { mock(:template_class, default_mime_type: 'text/css')}
 
-  context "#content_type"
-  context "#body"
+    before do
+      Tilt.should_receive(:[]).with('foo/other.haml').and_return(template_class)
+      template_class.should_receive(:new).with('foo/other.haml').and_return(template)
+    end
+
+    subject { Tiltd::Content.new('foo/other.haml') }
+
+    its(:content_type) { should == 'text/css' }
+    its(:body) { should == 'example content' }
+  end
 end
