@@ -11,7 +11,7 @@ describe Tiltd::Application do
     end
 
     context "content found" do
-      let(:content) { stub(body: 'content', content_type: 'text/css') }
+      let(:content) { stub(body: 'content', mime_type: 'text/css') }
       before { Tiltd::Content.should_receive(:locate).with('/foo/other').and_return(content)}
 
       specify { response[0].should == 200 }

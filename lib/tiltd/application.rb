@@ -5,7 +5,7 @@ module Tiltd
 
       if content = Content.locate(request.path_info)
         headers = {
-          'Content-Type'  => content.content_type,
+          'Content-Type'  => content.mime_type,
           'Cache-Control' => 'public, max-age=86400'
         }
         code = 200

@@ -17,7 +17,7 @@ module Tiltd
       @template = @template_class.new(path)
     end
 
-    def content_type
+    def mime_type
       @template_class.default_mime_type
     end
 

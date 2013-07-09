@@ -47,7 +47,7 @@ describe Tiltd::Content do
 
     subject { Tiltd::Content.new('foo/other.haml') }
 
-    its(:content_type) { should == 'text/css' }
+    its(:mime_type) { should == 'text/css' }
     its(:body) { should == 'example content' }
   end
 end
