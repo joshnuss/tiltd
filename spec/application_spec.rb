@@ -10,6 +10,17 @@ describe Tiltd::Application do
       Rack::Request.should_receive(:new).with(:env).and_return(request)
     end
 
+    context "file exists" do
+      it "uses rack file" do
+        rack_file = mock(:rack_file)
+        File.should_receive(:exists?).with('foo/other').and_return(true)
+        Rack::File.should_receive(:new).with(Dir.pwd).and_return(rack_file)
+        rack_file.should_receive(:call).with(:env)
+
+        app.call(:env)
+      end
+    end
+
     context "content found" do
       let(:content) { stub(body: 'content', mime_type: 'text/css') }
       before { Tiltd::Content.should_receive(:locate).with('/foo/other').and_return(content)}

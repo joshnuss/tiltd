@@ -4,7 +4,9 @@ module Tiltd
       request = Rack::Request.new(env)
       headers = {}
 
-      if content = Content.locate(request.path_info)
+      if File.exists?(request.path_info.gsub(%r{^/}, ''))
+        return Rack::File.new(Dir.pwd).call(env)
+      elsif content = Content.locate(request.path_info)
         headers['Content-Type'] = content.mime_type
         code = 200
         body = content.body
